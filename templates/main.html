@@ -1,0 +1,41 @@
+<!doctype html>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+
+
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+
+</style>
+
+<head>
+    <title>Прогнозирование зарплаты</title>
+</head>
+
+<form action="{{url_for('main')}}" method="POST">
+    <fieldset>
+        <legend>Введите значение</legend>
+        Ваш опыт
+        <input name = "experience" type = "number"
+        required>
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+
+<div class="result" align="center">
+    {% if result %}
+        <br>
+        <p style="font-size:50px">
+        Ваша прогнозная зарплата
+        </p>
+        <p style="font-size:50px"> {{result}}</p>
+    {% endif %}
+</div>
