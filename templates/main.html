@@ -6,6 +6,7 @@ form {
 }
 
 
+
 .result {
     margin: auto;
     width: 35%;
@@ -15,26 +16,77 @@ form {
 </style>
 
 <head>
-    <title>Прогнозирование зарплаты</title>
+    <title>Прогнозирование соотношения матрица-наполнитель</title>
 </head>
 
 <form action="{{url_for('main')}}" method="POST">
     <fieldset>
-        <legend>Введите значение</legend>
-        Ваш опыт
-        <input name = "experience" type = "number"
-        required>
+        <legend>Введите значения</legend>
+        Плотность, кг/м³
+        <input name = "A1" type = "FloatField" required>
         <br>
+    
+        Модуль упругости, ГПа
+        <input name = "A2" type = "FloatField" required>
         <br>
-        <input type="submit">
+
+        Количество отвердителя, м. %
+        <input name = "A3" type = "FloatField" required>
+        <br>
+
+        Содержание эпоксидных групп, %
+        <input name = "A4" type = "FloatField" required>
+        <br>
+
+        Температура вспышки, С°
+        <input name = "A5" type = "FloatField" required>
+        <br>
+
+        Поверхностная плотность, г/м²
+        <input name = "A6" type = "FloatField" required>
+        <br>
+
+        Модуль упругости при растяжении, ГПа
+        <input name = "A7" type = "FloatField" required>
+        <br>
+
+        Прочность при растяжении, МПа
+        <input name = "A8" type = "FloatField" required>
+        <br>
+
+        Потребление смолы, г/м²
+        <input name = "A9" type = "FloatField" required>
+        <br>
+
+        Угол нашивки, град
+        <input name = "A10" type = "FloatField" required>
+        <br>
+
+        Шаг нашивки
+        <input name = "A11" type = "FloatField" required>
+        <br>
+
+        Плотность нашивки
+        <input name = "A12" type = "FloatField" required>
+        <br>
+
+        <input type="submit" name="submit_button" value="Прогноз">
     </fieldset>
 </form>
+
+<form action="{{url_for('main')}}" method="POST">
+    <fieldset>
+        <legend>Тестирование</legend>
+        <input type="submit" name="submit_button" value="Тестирование">
+    </fieldset>
+</form>
+
 
 <div class="result" align="center">
     {% if result %}
         <br>
         <p style="font-size:50px">
-        Ваша прогнозная зарплата
+        Прогнозное соотношение матрица-наполнитель
         </p>
         <p style="font-size:50px"> {{result}}</p>
     {% endif %}
