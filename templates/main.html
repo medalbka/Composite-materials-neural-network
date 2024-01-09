@@ -1,18 +1,42 @@
 <!doctype html>
 <style>
-form {
-    margin: auto;
-    width: 35%;
-}
+    form {
+        display: block;
+        margin: auto;
+        width: 20%;
+    }
 
 
+    .result {
+        margin: auto;
+        width: 20%;
+        border: 1px solid #ccc;
+    }
 
-.result {
-    margin: auto;
-    width: 35%;
-    border: 1px solid #ccc;
-}
-
+    .data-pack {
+        height: 30px;
+        padding: 0px;
+        margin: 0 0 5px 0;
+    }
+    
+    .lb {
+        width: 280px;
+        height: 24px;
+        line-height: 24px;
+        text-align: left;
+        margin-right: 10px;
+        float: left;
+    }
+    
+    input[type="FloatField"] {
+        width: 150px;
+        height: 16px;
+        padding: 2px;
+        border: 2px solid black;
+        outline: none;
+    }
+    
+    
 </style>
 
 <head>
@@ -22,54 +46,67 @@ form {
 <form action="{{url_for('main')}}" method="POST">
     <fieldset>
         <legend>Введите значения</legend>
-        Плотность, кг/м³
-        <input name = "A1" type = "FloatField" required>
-        <br>
-    
-        Модуль упругости, ГПа
-        <input name = "A2" type = "FloatField" required>
-        <br>
-
-        Количество отвердителя, м. %
-        <input name = "A3" type = "FloatField" required>
-        <br>
-
-        Содержание эпоксидных групп, %
-        <input name = "A4" type = "FloatField" required>
-        <br>
-
-        Температура вспышки, С°
-        <input name = "A5" type = "FloatField" required>
-        <br>
-
-        Поверхностная плотность, г/м²
-        <input name = "A6" type = "FloatField" required>
-        <br>
-
-        Модуль упругости при растяжении, ГПа
-        <input name = "A7" type = "FloatField" required>
-        <br>
-
-        Прочность при растяжении, МПа
-        <input name = "A8" type = "FloatField" required>
-        <br>
-
-        Потребление смолы, г/м²
-        <input name = "A9" type = "FloatField" required>
-        <br>
-
-        Угол нашивки, град
-        <input name = "A10" type = "FloatField" required>
-        <br>
-
-        Шаг нашивки
-        <input name = "A11" type = "FloatField" required>
-        <br>
-
-        Плотность нашивки
-        <input name = "A12" type = "FloatField" required>
-        <br>
-
+        
+        <p class="data-pack">
+            <label class="lb">Плотность, кг/м³</label>
+            <input class="in" name = "A1" type = "FloatField" required>
+        </p>
+        
+        <p class="data-pack">
+            <label class="lb">Модуль упругости, ГПа</label>
+            <input class="in" name = "A2" type = "FloatField" required>
+        </p>
+        
+        <p class="data-pack">
+            <label class="lb">Количество отвердителя, м. %</label>
+            <input name = "A3" type = "FloatField" required>
+        </p>
+        
+        <p class="data-pack">
+            <label class="lb">Содержание эпоксидных групп, %</label>
+            <input name = "A4" type = "FloatField" required>
+        </p>
+        
+        <p class="data-pack">
+            <label class="lb">Температура вспышки, С°</label>
+            <input name = "A5" type = "FloatField" required>
+        </p>
+           
+        <p class="data-pack">
+            <label class="lb">Поверхностная плотность, г/м²</label>
+            <input name = "A6" type = "FloatField" required>
+        </p>
+        
+        <p class="data-pack">
+            <label class="lb">Модуль упругости при растяжении, ГПа</label>
+            <input name = "A7" type = "FloatField" required>
+        </p>
+        
+        <p class="data-pack">
+            <label class="lb">Прочность при растяжении, МПа</label>
+            <input name = "A8" type = "FloatField" required>
+        </p>
+        
+        <p class="data-pack">
+            <label class="lb">Потребление смолы, г/м²</label>
+            <input name = "A9" type = "FloatField" required>
+        </p>
+        
+        <p class="data-pack">
+            <label class="lb">Угол нашивки, град</label>
+            <input name = "A10" type = "FloatField" required>
+        </p>
+        
+        <p class="data-pack">
+            <label class="lb">Шаг нашивки</label>
+            <input name = "A11" type = "FloatField" required>
+        </p>
+        
+        <p class="data-pack">
+            <label class="lb">Плотность нашивки</label>
+            <input name = "A12" type = "FloatField" required>
+        </p>
+        
         <input type="submit" name="submit_button" value="Прогноз">
     </fieldset>
 </form>
@@ -85,9 +122,9 @@ form {
 <div class="result" align="center">
     {% if result %}
         <br>
-        <p style="font-size:50px">
+        <p style="font-size:30px">
         Прогнозное соотношение матрица-наполнитель
         </p>
-        <p style="font-size:50px"> {{result}}</p>
+        <p style="font-size:30px"> {{result}}</p>
     {% endif %}
 </div>
